@@ -20,3 +20,4 @@ trigger vehicleIsRemoved on Vehicle__c (before delete,after delete) {
   insert cases;
           }
    }
+   
