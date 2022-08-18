@@ -1,15 +1,15 @@
 public with sharing class TelemetryDataCleaningSchedulable implements Schedulable {
                   
-    public static String  CRON_EXP = '0  5 * * * ?';
+    public String  CRON_EXP = '0 0 2 1 * ? *'; // Every first day of the month at 2 am
 
-    public static String scheduleTel(){
+    public String scheduleTel(){
         TelemetryDataCleaningSchedulable schedule  = new TelemetryDataCleaningSchedulable();
         return System.Schedule('Telemetry to delete', CRON_EXP, schedule );
     }
 
-    public void execute (SchedulableContext sc){
-        TelemetryDataCleaningBatch batch = new TelemetryDataCleaningBatch();
-        ID batchprocessid = Database.executeBatch(batch);
+    public void execute (SchedulableContext schedule){
+        TelemetryDataCleaningBatch bc = new TelemetryDataCleaningBatch();
+        ID batchId = Database.executeBatch(bc);
     }
 
 

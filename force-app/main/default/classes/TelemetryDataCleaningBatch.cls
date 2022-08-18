@@ -7,9 +7,9 @@ public with sharing class TelemetryDataCleaningBatch  implements Database.Batcha
     }
 
     
-    public void execute (Database.BatchableContext bc, List <Telemetry__c> telemetries){
+    public void execute (Database.BatchableContext bc, List <Telemetry__c> telemetriesList){
         
-        delete telemetries;
+        delete telemetriesList;
        
     }
 
