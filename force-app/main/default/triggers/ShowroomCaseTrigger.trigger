@@ -11,8 +11,9 @@ trigger ShowroomCaseTrigger on Showroom__c (after update) {
 
     CreateCaseQueueable casenew = new CreateCaseQueueable();
     casenew.setShowrooms(closeShowroom);
-    ID jobID = System.enqueueJob(closeShowroom);
- }
+    ID jobID = System.enqueueJob(casenew);
+
+    }
     
    // if(Trigger.isUpdate && Trigger.isAfter){
 

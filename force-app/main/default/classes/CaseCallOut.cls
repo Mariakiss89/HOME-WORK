@@ -14,13 +14,20 @@ public with sharing class CaseCallOut implements Queueable {
             req.setBody(JSON.serialize(cases));
             HttpResponse resp = server.send(req);
             if(resp.getStatusCode() == 201){
-                update cases;
-            }
-            else{
+                for( Case caseObj:cases){
+                    caseObj.Status='Close';
+                }   
+            }             
+                else {
                 System.debug(LoggingLevel.ERROR, 'Connection error.');
+                for( Case caseObj:cases){
+                    caseObj.Status='Failed';
+                }
             }
+            update cases;
+        }
+
     }
 
     
-}
 }
