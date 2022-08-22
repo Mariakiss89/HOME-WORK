@@ -1,5 +1,5 @@
 @isTest
-public with sharing class vehicleIsRemovedTest {
+public with sharing class VehicleIsRemovedTest {
     @isTest public static void OfferTest1() {
         Test.startTest();
 
