@@ -1,4 +1,4 @@
-public with sharing class CaseCallOut implements Queueable {
+public with sharing class CaseCallOut implements Queueable, Database.AllowsCallouts {
 
     private List <Case> cases;
 
