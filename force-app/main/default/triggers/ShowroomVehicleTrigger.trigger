@@ -1,9 +1,10 @@
 trigger ShowroomVehicleTrigger on Showroom_Vehicle__c (before insert,before update,after insert) {
 
   if ( Trigger.isAfter && Trigger.isInsert){
-    EmailNewOffers offemail = new EmailNewOffers();
-    offemail.sendMail(Trigger.new);
-  }
+
+    EmailNewOffers.sendMail(Trigger.new);    
+
+    }     
 
   if(Trigger.isBefore && Trigger.isInsert || Trigger.isBefore && Trigger.isUpdate){
     Set<String> physicalOffer = new Set <String>();
