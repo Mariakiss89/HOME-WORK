@@ -1,0 +1,30 @@
+<template>
+    <template if:true={vehicle}>
+
+        <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+        <b>Vehicles Information</b>
+
+
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0" cellpadding="0"
+            bordercolor="#ccc" style="border-collapse:collapse;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Brand</th>
+                    <th>Interested</th>
+                    <th>???</th>
+                </tr>
+            </thead>
+            <tr key={vehicle.Id}>
+                <td>{vehicle.Name}</td>
+                <td>{vehicle.price__c}</td>
+                <td>{vehicle.brand__c}</td>
+                <td>{vehicle.I_Like_It__c}</td>
+                <td>
+                    <input type="checkbox" checked={vehicle.I_Like_It__c} onchange={handleChange} value={vehicle.Id}>
+                </td>
+            </tr>
+        </table>
+    </template>
+</template>

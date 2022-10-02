@@ -1,0 +1,70 @@
+<template>
+    <lightning-card>
+        <div class="slds-page-header slds-page-header--object-home">
+            <lightning-layout>
+                <lightning-layout-item>
+                    <lightning-icon icon-name="standard:account" alternative-text="Account"></lightning-icon>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-var-m-left_small">
+                    <h1 class="slds-page-header__title slds-var-p-right_x-small">Second Consortium</h1>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item>
+                    <p class="slds-text-body_small"> • View Vehicles,
+                        Showrooms Based on Selected Account</p>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        <lightning-card title="Accounts"></lightning-card>
+        <label class="slds-form-element__label" for="select-01">
+        </label>
+        <div class="slds-form-element__control">
+            <div class="slds-select_container">
+                <select class="slds-select" id="select-01" onchange={onAccountSelection}>
+                    <option value=" ">Select Account</option>
+
+                    <template for:each={accounts.data} for:item="acc">
+                        <option key={acc.Id} value={acc.Id}>
+                            {acc.Name}
+                        </option>
+                    </template>
+                </select>
+            </div>
+        </div>
+        <lightning-card title="Showrooms">
+            <label class="slds-form-element__label" for="select-02"></label>
+            <div class="slds-form-element__control">
+                <div class="slds-select_container">
+                    <select class="slds-select" id="select-02" onchange={onShowroomSelection}>
+                        <option value=" ">Select Showrooms </option>
+                        <template for:each={showrooms.data} for:item="show">
+                            <option key={show.Id} value={show.Id}>
+                                {show.Name}
+                            </option>
+                        </template>
+                    </select>
+                </div>
+            </div>
+        </lightning-card>
+
+        <lightning-card title="Vehicles">
+            <label class="slds-form-element__label" for="select-03">Select Vehicles</label>
+            <div class="slds-form-element__control">
+                <div class="slds-select_container">
+                    <select class="slds-select" id="select-03" onchange={onVehicleSelection}>
+                        <option value=" ">Select Vehicle</option>
+                        <template for:each={vehicles.data} for:item="vehi">
+                            <option key={vehi.Id} value={vehi.Id}>
+                                {vehi.Name}
+                            </option>
+                        </template>
+                    </select>
+                </div>
+            </div>
+        </lightning-card>
+        <lightning-card>
+            <c-vehicle-list vehicle-id={vehicleId}></c-vehicle-list>
+        </lightning-card>
+    </lightning-card>
+</template>
